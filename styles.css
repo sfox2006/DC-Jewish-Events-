@@ -228,6 +228,14 @@ a:hover {
   gap: 4px;
 }
 
+.toolbar-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+
 .top-actions-row {
   display: flex;
   align-items: center;
@@ -282,6 +290,44 @@ body.is-calendar .view-toggle {
   text-decoration: underline;
 }
 
+#install-app {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: none;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--blue);
+  background: #fff;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#install-app .ms {
+  font-size: 18px;
+}
+
+#install-app:hover,
+#install-app:focus-visible {
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+}
+
+#install-app:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+#install-app:disabled {
+  opacity: 0.72;
+  cursor: progress;
+}
+
 .btn-email {
   display: inline-flex;
   align-items: center;
@@ -320,21 +366,6 @@ body.is-calendar .view-toggle {
   color: var(--secondary);
   font-size: 13px;
   padding: 8px 16px;
-}
-
-.install-tip {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 40px;
-  background: var(--sand);
-  border-bottom: 1px solid var(--hairline);
-  font-size: 14px;
-}
-
-.install-tip p {
-  margin: 0;
 }
 
 .layout {
@@ -1402,12 +1433,17 @@ body.filters-open {
     width: 100%;
   }
 
+  .toolbar-line {
+    justify-content: flex-start;
+    width: 100%;
+    gap: 12px 16px;
+  }
+
   .top-actions-row {
     flex-wrap: wrap;
     gap: 12px 16px;
   }
 
-  .install-tip,
   .site-footer {
     padding-left: 16px;
     padding-right: 16px;
@@ -1656,10 +1692,10 @@ body.filters-open {
   }
 
   .topbar {
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 8px;
-    padding: 8px 12px 4px;
+    padding: 8px 12px 8px;
     padding-top: max(8px, env(safe-area-inset-top));
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
@@ -1669,7 +1705,8 @@ body.filters-open {
 
   .brand-title {
     min-width: 0;
-    flex: 1;
+    flex: 1 1 100%;
+    width: 100%;
   }
 
   .brand-home {
@@ -1702,8 +1739,21 @@ body.filters-open {
   .top-actions {
     position: static;
     align-items: flex-end;
-    width: auto;
+    width: 100%;
     flex: none;
+  }
+
+  .toolbar-line {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+  }
+
+  #install-app {
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 14px;
   }
 
   .menu-toggle {
@@ -1903,7 +1953,6 @@ body.filters-open {
     background: #fff;
   }
 
-  .install-tip,
   .site-footer,
   .main {
     padding-left: max(16px, env(safe-area-inset-left));
@@ -2262,6 +2311,24 @@ body.filters-open {
   font-weight: 600;
   font-size: 28px;
   line-height: 1.15;
+}
+
+#install-dialog {
+  max-width: 420px;
+}
+
+#install-dialog h2 {
+  margin: 8px 0 12px;
+  font-family: "Crimson Pro", Georgia, serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+#install-dialog p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .day-span {

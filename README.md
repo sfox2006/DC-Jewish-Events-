@@ -15,7 +15,7 @@ Asset paths are relative (`./`, `styles.css`, `data/events.json`, `assets/…`),
 - Open an event for its description. Event page links go to the organiser's own page.
 - Add an event to Google Calendar, download an ICS file, or open it in Outlook.
 - Share a link that opens this site's own event view (`?event=` plus the event id).
-- Install the page as an app. Refresh re-fetches `data/events.json`. The service worker keeps a shell cache named `dcj-v1` and a network-first data cache named `dcj-data-v1`.
+- Install the page as an app with the header Install app button. Chrome, Edge, and Android open the browser install prompt. iPhone, iPad, and other browsers show the steps: tap Share, then Add to Home Screen. The button stays hidden when the site is already open as an installed app. Refresh re-fetches `data/events.json` from the network whenever the device is online. The service worker keeps the app shell in `dcj-v2` and a network-first data cache named `dcj-data-v1`. Manifest `start_url` and `scope` are `./`, so the install stays on the GitHub Pages path `/DC-Jewish-Events-/`.
 - The list and calendar include events from today through the next 31 days (Eastern Time), evaluated in the browser. The date picker and day strip stop at that horizon.
 - A multi-day event is shown on every day it runs, with a Day N of M badge.
 - Unknown cost is shown as Unknown and is never treated as free. Unknown movement, kosher status, and audience are shown as Unknown.

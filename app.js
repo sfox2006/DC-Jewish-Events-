@@ -53,7 +53,6 @@
   );
   const SHARE_FORMATS = new Set(["in_person", "hybrid", "online"]);
   const LOCAL_EVENTS_URL = "data/events.json";
-  const INSTALL_TIP_KEY = "dcj-install-tip-dismissed";
   const FOCUS_REFRESH_MS = 60 * 1000;
 
   const els = {
@@ -76,8 +75,8 @@
     refresh: document.getElementById("refresh-events"),
     refreshStatus: document.getElementById("refresh-status"),
     install: document.getElementById("install-app"),
-    installTip: document.getElementById("install-tip"),
-    installTipDismiss: document.getElementById("dismiss-install-tip"),
+    installDialog: document.getElementById("install-dialog"),
+    installClose: document.getElementById("install-close"),
     pullIndicator: document.getElementById("pull-indicator"),
     viewToggle: document.getElementById("view-toggle"),
     viewToggleLabel: document.getElementById("view-toggle-label"),
@@ -119,6 +118,8 @@
   let lastFetchedAt = 0;
   let refreshInFlight = null;
   let deferredInstallPrompt = null;
+  let installMode = "hidden";
+  let restoreInstallOnClose = false;
   let cachedFilterKey = "";
   let cachedFiltered = null;
   let cachedDayIndex = null;
@@ -2143,7 +2144,11 @@
         return;
       }
       if (e.key !== "Escape") return;
-      if ((els.aboutDialog && els.aboutDialog.open) || (els.signupDialog && els.signupDialog.open)) return;
+      if (
+        (els.aboutDialog && els.aboutDialog.open) ||
+        (els.signupDialog && els.signupDialog.open) ||
+        (els.installDialog && els.installDialog.open)
+      ) return;
       const openMenuEl = document.querySelector(".cal-menu.is-open");
       if (openMenuEl) {
         closeMenus(true);
@@ -2351,48 +2356,119 @@
     return classic || ipadOs;
   }
 
-  function bindInstall() {
-    const tipDismissed = (() => {
-      try {
-        return localStorage.getItem(INSTALL_TIP_KEY) === "1";
-      } catch (err) {
-        return false;
-      }
-    })();
-    if (els.installTip && isIos() && !isStandalone() && !tipDismissed) {
-      els.installTip.hidden = false;
+  function isChromiumInstallable() {
+    if (isIos()) return false;
+    const ua = window.navigator.userAgent || "";
+    if (/Firefox|FxiOS/i.test(ua)) return false;
+    return /Chrome|Chromium|Edg\/|EdgA\/|OPR\/|SamsungBrowser/i.test(ua);
+  }
+
+  function hideInstall() {
+    if (els.install) els.install.hidden = true;
+    closeInstallDialog(false);
+  }
+
+  function showInstallButton(mode) {
+    installMode = mode;
+    if (!els.install || isStandalone()) {
+      if (els.install) els.install.hidden = true;
+      return;
     }
-    if (els.installTipDismiss) {
-      els.installTipDismiss.addEventListener("click", () => {
-        if (els.installTip) els.installTip.hidden = true;
-        try {
-          localStorage.setItem(INSTALL_TIP_KEY, "1");
-        } catch (err) {
-          /* Private mode can block storage; the tip still closes. */
-        }
+    els.install.hidden = false;
+    if (mode === "instructions") {
+      els.install.setAttribute("aria-haspopup", "dialog");
+      els.install.setAttribute("aria-controls", "install-dialog");
+    } else {
+      els.install.removeAttribute("aria-haspopup");
+      els.install.removeAttribute("aria-controls");
+    }
+  }
+
+  function restoreInstallFocus() {
+    if (els.install && !els.install.hidden && els.install.offsetParent !== null) {
+      els.install.focus();
+      return;
+    }
+    if (els.menuToggle && isPhoneLayout()) els.menuToggle.focus();
+  }
+
+  function openInstallDialog() {
+    const dialog = els.installDialog;
+    if (!dialog) return;
+    if (dialog.showModal && !dialog.open) dialog.showModal();
+    else dialog.setAttribute("open", "");
+  }
+
+  function closeInstallDialog(restore) {
+    const dialog = els.installDialog;
+    if (!dialog) return;
+    const wasOpen = dialog.open || dialog.hasAttribute("open");
+    if (!wasOpen) return;
+    restoreInstallOnClose = Boolean(restore);
+    if (dialog.close) dialog.close();
+    else dialog.removeAttribute("open");
+    if (!dialog.close && restore) restoreInstallFocus();
+  }
+
+  function bindInstall() {
+    if (els.installDialog) {
+      els.installDialog.addEventListener("cancel", () => {
+        restoreInstallOnClose = true;
+      });
+      els.installDialog.addEventListener("close", () => {
+        if (!restoreInstallOnClose) return;
+        restoreInstallOnClose = false;
+        restoreInstallFocus();
+      });
+      els.installDialog.addEventListener("click", (event) => {
+        if (event.target === els.installDialog) closeInstallDialog(true);
       });
     }
+    if (els.installClose) {
+      els.installClose.addEventListener("click", () => closeInstallDialog(true));
+    }
+
+    const standaloneQuery = window.matchMedia("(display-mode: standalone)");
+    const onDisplayMode = () => {
+      if (isStandalone()) hideInstall();
+      else if (installMode === "instructions" || deferredInstallPrompt) showInstallButton(installMode);
+    };
+    if (standaloneQuery.addEventListener) standaloneQuery.addEventListener("change", onDisplayMode);
+    else if (standaloneQuery.addListener) standaloneQuery.addListener(onDisplayMode);
+
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       deferredInstallPrompt = event;
-      if (els.install && !isStandalone()) els.install.hidden = false;
+      showInstallButton("native");
     });
     window.addEventListener("appinstalled", () => {
       deferredInstallPrompt = null;
-      if (els.install) els.install.hidden = true;
-      if (els.installTip) els.installTip.hidden = true;
+      installMode = "hidden";
+      hideInstall();
     });
+
+    if (isStandalone()) hideInstall();
+    else if (!isChromiumInstallable()) showInstallButton("instructions");
+
     if (els.install) {
       els.install.addEventListener("click", async () => {
-        if (!deferredInstallPrompt) return;
-        deferredInstallPrompt.prompt();
-        try {
-          await deferredInstallPrompt.userChoice;
-        } catch (err) {
-          /* The prompt can be dismissed without a choice result. */
+        closeMenu();
+        if (deferredInstallPrompt) {
+          const promptEvent = deferredInstallPrompt;
+          deferredInstallPrompt = null;
+          els.install.disabled = true;
+          try {
+            promptEvent.prompt();
+            const choice = await promptEvent.userChoice;
+            if (choice && choice.outcome === "accepted") hideInstall();
+          } catch (err) {
+            openInstallDialog();
+          } finally {
+            if (els.install) els.install.disabled = false;
+          }
+          return;
         }
-        deferredInstallPrompt = null;
-        els.install.hidden = true;
+        openInstallDialog();
       });
     }
   }

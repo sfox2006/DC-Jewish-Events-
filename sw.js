@@ -1,6 +1,6 @@
 /* DC Jewish Events — shell cache, network-first events.
    Bump SHELL_CACHE when HTML, CSS, JS, fonts, or icons change. */
-const SHELL_CACHE = "dcj-v1";
+const SHELL_CACHE = "dcj-v2";
 const DATA_CACHE = "dcj-data-v1";
 
 const SHELL = [
