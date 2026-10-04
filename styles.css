@@ -1692,10 +1692,10 @@ body.filters-open {
   }
 
   .topbar {
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 8px;
-    padding: 8px 12px 4px;
+    padding: 8px 12px 8px;
     padding-top: max(8px, env(safe-area-inset-top));
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
@@ -1705,7 +1705,8 @@ body.filters-open {
 
   .brand-title {
     min-width: 0;
-    flex: 1;
+    flex: 1 1 100%;
+    width: 100%;
   }
 
   .brand-home {
@@ -1738,7 +1739,7 @@ body.filters-open {
   .top-actions {
     position: static;
     align-items: flex-end;
-    width: auto;
+    width: 100%;
     flex: none;
   }
 
@@ -1746,7 +1747,7 @@ body.filters-open {
     flex-wrap: nowrap;
     justify-content: flex-end;
     gap: 8px;
-    width: auto;
+    width: 100%;
   }
 
   #install-app {
