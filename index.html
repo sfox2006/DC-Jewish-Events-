@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0" />
-  <link rel="stylesheet" href="styles.css?v=1" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to events</a>
@@ -50,21 +50,26 @@
       </button>
     </h1>
     <div class="top-actions">
-      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="overflow-menu" aria-label="Open menu">
-        <span class="ms" aria-hidden="true">menu</span>
-      </button>
-      <div class="top-actions-row" id="overflow-menu">
-        <button type="button" class="view-toggle" id="view-toggle" aria-pressed="false">
-          <span class="ms" aria-hidden="true">calendar_month</span>
-          <span id="view-toggle-label">Calendar</span>
+      <div class="toolbar-line">
+        <div class="top-actions-row" id="overflow-menu">
+          <button type="button" class="view-toggle" id="view-toggle" aria-pressed="false">
+            <span class="ms" aria-hidden="true">calendar_month</span>
+            <span id="view-toggle-label">Calendar</span>
+          </button>
+          <button type="button" class="btn-text" id="refresh-events">
+            <span class="ms" aria-hidden="true">refresh</span>
+            Refresh
+          </button>
+          <button type="button" class="btn-text" id="about-open">About</button>
+          <a class="btn-email" href="#signup">Weekly email</a>
+        </div>
+        <button type="button" class="install-app" id="install-app" hidden>
+          <span class="ms" aria-hidden="true">install_mobile</span>
+          Install app
         </button>
-        <button type="button" class="btn-text" id="refresh-events">
-          <span class="ms" aria-hidden="true">refresh</span>
-          Refresh
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="overflow-menu" aria-label="Open menu">
+          <span class="ms" aria-hidden="true">menu</span>
         </button>
-        <button type="button" class="btn-text" id="about-open">About</button>
-        <button type="button" class="btn-text" id="install-app" hidden>Install app</button>
-        <a class="btn-email" href="#signup">Weekly email</a>
       </div>
       <p class="refresh-status" id="refresh-status" role="status" aria-live="polite"></p>
     </div>
@@ -85,10 +90,6 @@
   </div>
 
   <p class="pull-indicator" id="pull-indicator" hidden>Pull to refresh</p>
-  <div class="install-tip" id="install-tip" hidden>
-    <p>On iPhone or iPad: tap Share, then <strong>Add to Home Screen</strong>.</p>
-    <button type="button" class="btn-text" id="dismiss-install-tip">Dismiss</button>
-  </div>
 
   <div class="layout">
     <button type="button" class="sheet-backdrop" id="sheet-backdrop" aria-label="Close filters" hidden></button>
@@ -450,7 +451,7 @@
       </div>
       <div>
         <dt>Install</dt>
-        <dd>Add this page to your home screen to open it like an app. On iPhone or iPad: Share, then Add to Home Screen. On Android or desktop Chrome: Install app, or the browser’s install menu. Refresh loads the latest published events.</dd>
+        <dd>Use Install app in the header. On iPhone or iPad: tap Share, then Add to Home Screen. On Android or desktop Chrome the button opens the browser install prompt. Refresh loads the latest published events.</dd>
       </div>
       <div>
         <dt>Newsletter</dt>
@@ -470,6 +471,17 @@
     <h2 id="signup-heading">Weekly email coming soon</h2>
   </dialog>
 
-  <script src="app.js?v=1"></script>
+  <dialog id="install-dialog" aria-labelledby="install-heading">
+    <div class="dialog-head">
+      <p class="eyebrow">Install</p>
+      <button type="button" class="icon-btn" id="install-close" aria-label="Close install instructions">
+        <span class="ms" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <h2 id="install-heading">Add to Home Screen</h2>
+    <p>Tap Share, then <strong>Add to Home Screen</strong>.</p>
+  </dialog>
+
+  <script src="app.js?v=2"></script>
 </body>
 </html>
