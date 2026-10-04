@@ -328,6 +328,10 @@ body.is-calendar .view-toggle {
   cursor: progress;
 }
 
+#install-app[hidden] {
+  display: none !important;
+}
+
 .btn-email {
   display: inline-flex;
   align-items: center;
@@ -2354,6 +2358,32 @@ body.filters-open {
 .site-footer a {
   color: var(--blue);
   font-weight: 600;
+}
+
+@media (min-width: 701px) {
+  .top-actions-row {
+    display: contents;
+  }
+
+  #view-toggle {
+    order: 1;
+  }
+
+  #refresh-events {
+    order: 2;
+  }
+
+  #about-open {
+    order: 3;
+  }
+
+  #install-app {
+    order: 4;
+  }
+
+  .toolbar-line .btn-email {
+    order: 5;
+  }
 }
 
 .site-footer a:hover {
