@@ -364,14 +364,6 @@ body.is-calendar .view-toggle {
   color: #9F1239;
 }
 
-.pull-indicator {
-  margin: 0;
-  text-align: center;
-  color: var(--secondary);
-  font-size: 13px;
-  padding: 8px 16px;
-}
-
 .layout {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -409,14 +401,6 @@ body.is-calendar .sidebar {
   text-transform: uppercase;
   color: var(--secondary);
   line-height: 1;
-}
-
-.filter-hint {
-  margin: 0;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 1.4;
-  color: var(--tertiary);
 }
 
 .week-nav,
@@ -1252,20 +1236,6 @@ input[type="search"] {
   text-decoration: underline;
 }
 
-.site-footer {
-  border-top: 1px solid var(--hairline);
-  padding: 28px 40px 48px;
-  color: var(--secondary);
-  font-size: 13px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.site-footer p {
-  margin: 0;
-  max-width: 760px;
-}
-
 .sheet-backdrop {
   display: none;
 }
@@ -1446,11 +1416,6 @@ body.filters-open {
   .top-actions-row {
     flex-wrap: wrap;
     gap: 12px 16px;
-  }
-
-  .site-footer {
-    padding-left: 16px;
-    padding-right: 16px;
   }
 
   .layout,
@@ -1860,8 +1825,7 @@ body.filters-open {
     gap: 0;
   }
 
-  #phone-search-slot .filter-label,
-  #phone-search-slot .filter-hint {
+  #phone-search-slot .filter-label {
     display: none;
   }
 
@@ -1957,7 +1921,6 @@ body.filters-open {
     background: #fff;
   }
 
-  .site-footer,
   .main {
     padding-left: max(16px, env(safe-area-inset-left));
     padding-right: max(16px, env(safe-area-inset-right));
@@ -2135,11 +2098,6 @@ body.filters-open {
     font-size: 16px;
   }
 
-  .site-footer {
-    font-size: 16px;
-    padding-bottom: calc(24px + env(safe-area-inset-bottom));
-  }
-
   body.filters-open .sidebar {
     top: 0;
     height: 100dvh;
@@ -2207,7 +2165,6 @@ body.filters-open {
     font-size: 13px;
   }
 
-  .filter-hint,
   .category-row,
   .category-count {
     font-size: 16px;
@@ -2355,11 +2312,6 @@ body.filters-open {
   background: var(--sand);
 }
 
-.site-footer a {
-  color: var(--blue);
-  font-weight: 600;
-}
-
 @media (min-width: 701px) {
   .top-actions-row {
     display: contents;
@@ -2384,8 +2336,4 @@ body.filters-open {
   .toolbar-line .btn-email {
     order: 5;
   }
-}
-
-.site-footer a:hover {
-  color: var(--blue-hover);
 }
