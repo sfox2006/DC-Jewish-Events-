@@ -79,7 +79,6 @@
     installClose: document.getElementById("install-close"),
     installHeading: document.getElementById("install-heading"),
     installInstructions: document.getElementById("install-instructions"),
-    pullIndicator: document.getElementById("pull-indicator"),
     viewToggle: document.getElementById("view-toggle"),
     viewToggleLabel: document.getElementById("view-toggle-label"),
     mainTitle: document.getElementById("main-title"),
@@ -457,12 +456,6 @@
     israeli: "Israeli",
     unknown: "Unknown",
   };
-  const KOSHER_LABELS = {
-    kosher: "Kosher",
-    kosher_style: "Kosher-style",
-    not_kosher: "Not kosher",
-    unknown: "Unknown",
-  };
   const AUDIENCE_LABELS = {
     "20s_30s": "Young adults 20s-30s",
     students: "Students",
@@ -479,14 +472,6 @@
     return "unknown";
   }
 
-  function kosherKind(value) {
-    const raw = fieldText(value).toLowerCase().replace(/[\s-]+/g, "_");
-    if (raw === "kosher") return "kosher";
-    if (raw === "kosher_style" || raw === "kosherstyle" || raw === "style") return "kosher_style";
-    if (raw === "not_kosher" || raw === "notkosher" || raw === "non_kosher" || raw === "nonkosher") return "not_kosher";
-    return "unknown";
-  }
-
   function audienceKind(value) {
     const raw = fieldText(value).toLowerCase().replace(/[\s-]+/g, "_");
     if (Object.prototype.hasOwnProperty.call(AUDIENCE_LABELS, raw)) return raw;
@@ -500,10 +485,6 @@
 
   function movementLabel(event) {
     return MOVEMENT_LABELS[event._movement || movementKind(event.movement)];
-  }
-
-  function kosherLabel(event) {
-    return KOSHER_LABELS[event._kosher || kosherKind(event.kosher)];
   }
 
   function audienceLabel(event) {
@@ -553,10 +534,8 @@
     const age = ageKind(event.age);
     if (age !== "unknown") parts.push(AGE_LABELS[age]);
     const movement = event._movement || movementKind(event.movement);
-    const kosher = event._kosher || kosherKind(event.kosher);
     const audience = event._audience || audienceKind(event.audience);
     if (movement !== "unknown") parts.push(MOVEMENT_LABELS[movement]);
-    if (kosher !== "unknown") parts.push(KOSHER_LABELS[kosher]);
     if (audience !== "unknown") parts.push(AUDIENCE_LABELS[audience]);
     const tags = event.tags || {};
     if (tags.free_entry) parts.push("Free entry");
@@ -591,7 +570,6 @@
     event._age = ageKind(event.age);
     event._format = formatKind(event.format);
     event._movement = movementKind(event.movement);
-    event._kosher = kosherKind(event.kosher);
     event._audience = audienceKind(event.audience);
     event._span = spanYmds(event);
     event._hay = [event.title, event.description, event.org, event.venue, event.address]
@@ -817,7 +795,6 @@
       format: selectedSegment("format"),
       age: selectedSegment("age"),
       movement: selectedChipValues("movement"),
-      kosher: selectedChipValues("kosher"),
       audience: selectedChipValues("audience"),
       time: selectedChipValues("time"),
       from: parseLocalDateInput(els.dateFrom.value),
@@ -848,8 +825,6 @@
     if (f.format && f.format !== "all" && format !== f.format) return false;
     const movement = event._movement || movementKind(event.movement);
     if (f.movement && f.movement.length && !f.movement.includes(movement)) return false;
-    const kosher = event._kosher || kosherKind(event.kosher);
-    if (f.kosher && f.kosher.length && !f.kosher.includes(kosher)) return false;
     const audience = event._audience || audienceKind(event.audience);
     const audienceKey = audience === "all" ? "everyone" : audience;
     if (f.audience && f.audience.length && !f.audience.includes(audienceKey)) return false;
@@ -883,7 +858,6 @@
       f.format,
       f.age,
       f.movement,
-      f.kosher,
       f.audience,
       f.time,
       f.from ? ymdKey(f.from) : "",
@@ -972,7 +946,6 @@
     const spanNote = daySpanLabel(event);
     if (spanNote) lines.push(spanNote);
     lines.push(`Movement: ${movementLabel(event)}`);
-    lines.push(`Kosher: ${kosherLabel(event)}`);
     lines.push(`Audience: ${audienceLabel(event)}`);
     const formatRaw = fieldText(event.format);
     if (formatRaw) {
@@ -1242,6 +1215,12 @@
     if (state.deepLinkApplied) return;
     state.deepLinkApplied = true;
     const params = new URLSearchParams(window.location.search);
+    if (params.has("kosher")) {
+      params.delete("kosher");
+      const next = params.toString();
+      const url = window.location.pathname + (next ? `?${next}` : "") + window.location.hash;
+      history.replaceState(null, "", url);
+    }
     const eventId = (params.get("event") || "").trim();
     const event = eventId ? allEvents.find((item) => item.id === eventId) : null;
     const dateKey = (params.get("date") || "").trim();
@@ -1377,7 +1356,6 @@
       parts.push(`<p class="detail-line"><span class="detail-label">Days</span> ${escapeHtml(spanNote)}</p>`);
     }
     parts.push(`<p class="detail-line"><span class="detail-label">Movement</span> ${escapeHtml(movementLabel(event))}</p>`);
-    parts.push(`<p class="detail-line"><span class="detail-label">Kosher</span> ${escapeHtml(kosherLabel(event))}</p>`);
     parts.push(`<p class="detail-line"><span class="detail-label">Audience</span> ${escapeHtml(audienceLabel(event))}</p>`);
     parts.push(actionsHtml(event, "list"));
     return parts.join("");
@@ -1407,7 +1385,6 @@
     const extraBadge = (kind, label) =>
       kind && kind !== "unknown" ? `<span class="event-badge">${escapeHtml(label)}</span>` : "";
     const movementBadge = extraBadge(event._movement || movementKind(event.movement), movementLabel(event));
-    const kosherBadge = extraBadge(event._kosher || kosherKind(event.kosher), kosherLabel(event));
     const audienceBadge = extraBadge(event._audience || audienceKind(event.audience), audienceLabel(event));
     return `
       <article class="event-row${open ? " is-open" : ""}" data-id="${escapeHtml(occId)}" style="--category:${color}">
@@ -1430,7 +1407,6 @@
               <span class="event-badge">${escapeHtml(costShort(event))}</span>
               ${ageBadge}
               ${movementBadge}
-              ${kosherBadge}
               ${audienceBadge}
             </span>
           </span>
@@ -1542,7 +1518,6 @@
     if (f.cost && f.cost !== "all") count += 1;
     if (f.format && f.format !== "all") count += 1;
     count += (f.movement || []).length;
-    count += (f.kosher || []).length;
     count += (f.audience || []).length;
     return count;
   }
@@ -1828,7 +1803,7 @@
     setSegment("format", "all");
     setSegment("cost", "all");
     setSegment("age", "all");
-    ["time", "topic", "perk", "movement", "kosher", "audience"].forEach((name) => setChipValues(name, []));
+    ["time", "topic", "perk", "movement", "audience"].forEach((name) => setChipValues(name, []));
     if (els.dateRange) els.dateRange.hidden = true;
     if (els.moreDates) els.moreDates.setAttribute("aria-expanded", "false");
     render();
@@ -2554,8 +2529,6 @@
   }
 
   function bindPullToRefresh() {
-    const indicator = els.pullIndicator;
-    if (!indicator) return;
     let startY = 0;
     let pulling = false;
     let dy = 0;
@@ -2581,16 +2554,9 @@
         if (!pulling || event.touches.length !== 1) return;
         if (window.scrollY > 0) {
           pulling = false;
-          indicator.hidden = true;
           return;
         }
         dy = event.touches[0].clientY - startY;
-        if (dy > 28) {
-          indicator.hidden = false;
-          indicator.textContent = dy > threshold ? "Release to refresh" : "Pull to refresh";
-        } else {
-          indicator.hidden = true;
-        }
       },
       { passive: true }
     );
@@ -2599,8 +2565,6 @@
       const release = pulling && dy > threshold;
       pulling = false;
       dy = 0;
-      indicator.hidden = true;
-      indicator.textContent = "Pull to refresh";
       if (release) loadEvents("pull");
     });
   }

@@ -11,15 +11,15 @@ Asset paths are relative (`./`, `styles.css`, `data/events.json`, `assets/…`),
 ## What you can do
 
 - Browse events in a three-day list, or switch to a week calendar. On a phone, the header stays compact, days swipe in a strip, and Filters opens a full-screen panel with large tap targets.
-- Filter by category, movement, format (in person, hybrid, online), cost (free, paid, unknown), kosher, audience (including young adults 20s-30s), age, time of day, and highlights. Search matches the title, description, organizer, or venue.
+- Filter by category, movement, format (in person, hybrid, online), cost (free, paid, unknown), audience (including young adults 20s-30s), age, time of day, and highlights. Search matches the title, description, organizer, or venue. The page does not show or filter on kosher.
 - Open an event for its description. Event page links go to the organiser's own page.
 - Add an event to Google Calendar, download an ICS file, or open it in Outlook.
 - Share a link that opens this site's own event view (`?event=` plus the event id).
-- Install the page as an app with the header Install app button, next to Refresh and About. The button is shown in every browser unless the site is already open as an installed app. When the browser has offered an install prompt, the button opens it. Otherwise it shows steps for Chrome and Edge on a computer, Android Chrome, iPhone and iPad Safari, or Firefox on a computer. Refresh re-fetches `data/events.json` from the network whenever the device is online. The service worker keeps the app shell in `dcj-v3`, loads page navigations network-first so a stale cached page cannot hide Install app, and keeps a network-first data cache named `dcj-data-v1`. Manifest `start_url` and `scope` are `./`, so the install stays on the GitHub Pages path `/DC-Jewish-Events-/`.
+- Install the page as an app with the header Install app button, next to Refresh and About. The button is shown in every browser unless the site is already open as an installed app. When the browser has offered an install prompt, the button opens it. Otherwise it shows steps for Chrome and Edge on a computer, Android Chrome, iPhone and iPad Safari, or Firefox on a computer. Refresh re-fetches `data/events.json` from the network whenever the device is online. The service worker keeps the app shell in `dcj-v4`, loads page navigations network-first so a stale cached page cannot hide Install app, and keeps a network-first data cache named `dcj-data-v1`. Manifest `start_url` and `scope` are `./`, so the install stays on the GitHub Pages path `/DC-Jewish-Events-/`.
 - An event with `all_day` set to true is labeled All day in the list, the event detail, the calendar, and the share text, and it sorts ahead of timed events that day. Add to calendar downloads an all-day date (an `.ics` `VALUE=DATE` event). Events with `all_day` absent or false keep a clock time.
 - The list and calendar include events from today through the next 31 days (Eastern Time), evaluated in the browser. The date picker and day strip stop at that horizon.
 - A multi-day event is shown on every day it runs, with a Day N of M badge.
-- Unknown cost is shown as Unknown and is never treated as free. Unknown movement, kosher status, and audience are shown as Unknown.
+- Unknown cost is shown as Unknown and is never treated as free. Unknown movement and audience are shown as Unknown.
 - “Get the weekly email” opens a short note that the signup form is not open yet. It does not leave this site.
 
 When `events` is empty, the page says “No events yet, data arrives after the first daily run”.
@@ -57,7 +57,7 @@ When `events` is empty, the page says “No events yet, data arrives after the f
 | `description` | Plain text shown when the event is opened. |
 | `source` | Where the event was found. |
 | `movement` | Optional. One of `reform`, `conservative`, `orthodox`, `chabad`, `pluralistic`, `secular_cultural`, `israeli`, `unknown`. Missing values are shown as Unknown. |
-| `kosher` | Optional. One of `kosher`, `kosher_style`, `not_kosher`, `unknown`. Missing values are shown as Unknown. |
+| `kosher` | Optional field the data pipeline may still supply (`kosher`, `kosher_style`, `not_kosher`, `unknown`). The page ignores it: no filter, badge, detail line, search field, or share parameter. |
 | `audience` | Optional. One of `20s_30s`, `students`, `families`, `all`, `seniors`, `unknown`. `20s_30s` is young adults in their 20s and 30s. Missing values are shown as Unknown. |
 
 Times on the page are Eastern (`America/New_York`).
