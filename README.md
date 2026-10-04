@@ -15,7 +15,8 @@ Asset paths are relative (`./`, `styles.css`, `data/events.json`, `assets/…`),
 - Open an event for its description. Event page links go to the organiser's own page.
 - Add an event to Google Calendar, download an ICS file, or open it in Outlook.
 - Share a link that opens this site's own event view (`?event=` plus the event id).
-- Install the page as an app with the header Install app button. Chrome, Edge, and Android open the browser install prompt. iPhone, iPad, and other browsers show the steps: tap Share, then Add to Home Screen. The button stays hidden when the site is already open as an installed app. Refresh re-fetches `data/events.json` from the network whenever the device is online. The service worker keeps the app shell in `dcj-v2` and a network-first data cache named `dcj-data-v1`. Manifest `start_url` and `scope` are `./`, so the install stays on the GitHub Pages path `/DC-Jewish-Events-/`.
+- Install the page as an app with the header Install app button, next to Refresh and About. The button is shown in every browser unless the site is already open as an installed app. When the browser has offered an install prompt, the button opens it. Otherwise it shows steps for Chrome and Edge on a computer, Android Chrome, iPhone and iPad Safari, or Firefox on a computer. Refresh re-fetches `data/events.json` from the network whenever the device is online. The service worker keeps the app shell in `dcj-v3`, loads page navigations network-first so a stale cached page cannot hide Install app, and keeps a network-first data cache named `dcj-data-v1`. Manifest `start_url` and `scope` are `./`, so the install stays on the GitHub Pages path `/DC-Jewish-Events-/`.
+- An event with `all_day` set to true is labeled All day in the list, the event detail, the calendar, and the share text, and it sorts ahead of timed events that day. Add to calendar downloads an all-day date (an `.ics` `VALUE=DATE` event). Events with `all_day` absent or false keep a clock time.
 - The list and calendar include events from today through the next 31 days (Eastern Time), evaluated in the browser. The date picker and day strip stop at that horizon.
 - A multi-day event is shown on every day it runs, with a Day N of M badge.
 - Unknown cost is shown as Unknown and is never treated as free. Unknown movement, kosher status, and audience are shown as Unknown.
@@ -43,6 +44,7 @@ When `events` is empty, the page says “No events yet, data arrives after the f
 | `org` | Organiser or venue name. |
 | `start` | ISO 8601 start with an Eastern offset, for example `2026-10-03T19:00:00-04:00`. |
 | `end` | ISO 8601 end with an Eastern offset. If it is missing or not after `start`, the event is one day and calendar exports use one hour. If it falls on later days, the event is listed on each of those days. An end time of exactly midnight does not add that next day. |
+| `all_day` | Optional boolean. When `true`, the event is shown as All day instead of a clock time, listed first that day, and calendar files use an all-day date. Missing or `false` keeps the clock time. |
 | `venue` | Place name. |
 | `address` | Street address. |
 | `maps_url` | Link opened from the venue line. |

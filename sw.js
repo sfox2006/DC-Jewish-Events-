@@ -1,6 +1,6 @@
 /* DC Jewish Events — shell cache, network-first events.
    Bump SHELL_CACHE when HTML, CSS, JS, fonts, or icons change. */
-const SHELL_CACHE = "dcj-v2";
+const SHELL_CACHE = "dcj-v3";
 const DATA_CACHE = "dcj-data-v1";
 
 const SHELL = [
@@ -141,6 +141,33 @@ async function networkFirstEvents(request) {
   }
 }
 
+function isNavigationRequest(request) {
+  return request.mode === "navigate";
+}
+
+async function networkFirstNavigation(request) {
+  const cache = await caches.open(SHELL_CACHE);
+  try {
+    const fresh = await fetch(request);
+    if (fresh.ok && (fresh.type === "basic" || fresh.type === "cors")) {
+      try {
+        await cache.put(new Request(request.url, { credentials: "same-origin" }), fresh.clone());
+      } catch (err) {
+        /* Navigation requests cannot be stored as-is. */
+      }
+    }
+    return fresh;
+  } catch (err) {
+    const cached =
+      (await cache.match(request)) ||
+      (await cache.match(request, { ignoreSearch: true })) ||
+      (await cache.match("./index.html")) ||
+      (await cache.match("./"));
+    if (cached) return cached;
+    throw err;
+  }
+}
+
 async function cacheFirst(request) {
   const cache = await caches.open(SHELL_CACHE);
   const cached =
@@ -166,6 +193,11 @@ self.addEventListener("fetch", (event) => {
 
   if (isEventsRequest(url)) {
     event.respondWith(networkFirstEvents(request));
+    return;
+  }
+
+  if (isNavigationRequest(request)) {
+    event.respondWith(networkFirstNavigation(request));
     return;
   }
 

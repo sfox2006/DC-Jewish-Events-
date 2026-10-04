@@ -77,6 +77,8 @@
     install: document.getElementById("install-app"),
     installDialog: document.getElementById("install-dialog"),
     installClose: document.getElementById("install-close"),
+    installHeading: document.getElementById("install-heading"),
+    installInstructions: document.getElementById("install-instructions"),
     pullIndicator: document.getElementById("pull-indicator"),
     viewToggle: document.getElementById("view-toggle"),
     viewToggleLabel: document.getElementById("view-toggle-label"),
@@ -271,6 +273,10 @@
     view._dayN = n;
     view._dayM = m;
     view._occId = event.id + "@" + ymdKey(ymd);
+    if (isAllDay(event)) {
+      view._timeLabel = "All day";
+      return view;
+    }
     if (m > 1 && n > 1) {
       if (n === m && event.end) view._timeLabel = "Until " + formatStartTime(event.end);
       else view._timeLabel = "Continues";
@@ -279,6 +285,9 @@
   }
 
   function compareViews(a, b) {
+    const aAll = a.all_day === true ? 0 : 1;
+    const bAll = b.all_day === true ? 0 : 1;
+    if (aAll !== bAll) return aAll - bAll;
     const aCont = a._dayN > 1 ? 0 : 1;
     const bCont = b._dayN > 1 ? 0 : 1;
     if (aCont !== bCont) return aCont - bCont;
@@ -324,6 +333,10 @@
     if (mins < 15 * 60 + 30) return "early_afternoon";
     if (mins < 17 * 60 + 30) return "late_afternoon";
     return "evening";
+  }
+
+  function isAllDay(event) {
+    return Boolean(event && event.all_day === true);
   }
 
   function formatStartTime(iso) {
@@ -572,7 +585,7 @@
       event._ymd = eventYmdInTz(startDate);
       event._day = ymdKey(event._ymd);
       event._bucket = timeBucket(event.start);
-      event._timeLabel = formatStartTime(startDate);
+      event._timeLabel = isAllDay(event) ? "All day" : formatStartTime(startDate);
     }
     event._cost = costKind(event.cost);
     event._age = ageKind(event.age);
@@ -973,15 +986,32 @@
     return lines.join("\n\n");
   }
 
+  function allDayBounds(event) {
+    if (!isAllDay(event) || !event.start) return null;
+    const span = event._span && event._span.length ? event._span : spanYmds(event);
+    if (!span.length) return null;
+    return { startYmd: span[0], endExclusive: addDays(span[span.length - 1], 1) };
+  }
+
+  function compactDate(ymd) {
+    return `${ymd.y}${pad2(ymd.m)}${pad2(ymd.d)}`;
+  }
+
+  function isoDate(ymd) {
+    return `${ymd.y}-${pad2(ymd.m)}-${pad2(ymd.d)}`;
+  }
+
   function googleCalendarUrl(event) {
-    const start = toUtcStamp(event.start);
-    const end = toUtcStamp(eventEndIso(event));
+    const bounds = allDayBounds(event);
+    const dates = bounds
+      ? `${compactDate(bounds.startYmd)}/${compactDate(bounds.endExclusive)}`
+      : `${toUtcStamp(event.start)}/${toUtcStamp(eventEndIso(event))}`;
     const parts = [
       "action=TEMPLATE",
       `text=${encodeURIComponent(event.title || "Event")}`,
-      `dates=${start}/${end}`,
-      `ctz=${encodeURIComponent(TZ)}`,
+      `dates=${dates}`,
     ];
+    if (!bounds) parts.push(`ctz=${encodeURIComponent(TZ)}`);
     const details = calendarDetails(event);
     if (details) parts.push(`details=${encodeURIComponent(details)}`);
     const loc = locationText(event);
@@ -1017,8 +1047,9 @@
   }
 
   function outlookCalendarUrl(event) {
-    const start = toEtStamp(event.start);
-    const end = toEtStamp(eventEndIso(event));
+    const bounds = allDayBounds(event);
+    const start = bounds ? isoDate(bounds.startYmd) : toEtStamp(event.start);
+    const end = bounds ? isoDate(bounds.endExclusive) : toEtStamp(eventEndIso(event));
     const parts = [
       "path=/calendar/action/compose",
       "rru=addevent",
@@ -1026,6 +1057,7 @@
       `startdt=${encodeURIComponent(start)}`,
       `enddt=${encodeURIComponent(end)}`,
     ];
+    if (bounds) parts.push("allday=true");
     const loc = locationText(event);
     if (loc) parts.push(`location=${encodeURIComponent(loc)}`);
     const details = calendarDetails(event);
@@ -1069,10 +1101,16 @@
       "BEGIN:VEVENT",
       `UID:${icsEscape(uid)}`,
       `DTSTAMP:${toUtcStamp(new Date())}`,
-      `DTSTART:${toUtcStamp(event.start)}`,
-      `DTEND:${toUtcStamp(eventEndIso(event))}`,
-      `SUMMARY:${icsEscape(event.title || "Event")}`,
     ];
+    const bounds = allDayBounds(event);
+    if (bounds) {
+      lines.push(`DTSTART;VALUE=DATE:${compactDate(bounds.startYmd)}`);
+      lines.push(`DTEND;VALUE=DATE:${compactDate(bounds.endExclusive)}`);
+    } else {
+      lines.push(`DTSTART:${toUtcStamp(event.start)}`);
+      lines.push(`DTEND:${toUtcStamp(eventEndIso(event))}`);
+    }
+    lines.push(`SUMMARY:${icsEscape(event.title || "Event")}`);
     const loc = locationText(event);
     if (loc) lines.push(`LOCATION:${icsEscape(loc)}`);
     const details = calendarDetails(event);
@@ -1155,9 +1193,10 @@
 
   async function shareEvent(event, button) {
     const url = shareUrl(event);
+    const title = event.title || "DC Jewish Events";
     const payload = {
-      title: event.title || "DC Jewish Events",
-      text: event.title || "DC Jewish Events",
+      title,
+      text: isAllDay(event) ? `${title} · All day` : title,
       url,
     };
     let canShare = typeof navigator.share === "function";
@@ -1293,7 +1332,9 @@
     if (speakers) {
       parts.push(`<p class="detail-line"><span class="detail-label">Speakers</span> ${escapeHtml(speakers)}</p>`);
     }
-    if (event.end) {
+    if (isAllDay(event)) {
+      parts.push(`<p class="detail-line"><span class="detail-label">Time</span> All day</p>`);
+    } else if (event.end) {
       const end = new Date(event.end);
       const start = new Date(event.start);
       if (!Number.isNaN(end.getTime()) && end > start) {
@@ -2356,11 +2397,42 @@
     return classic || ipadOs;
   }
 
-  function isChromiumInstallable() {
-    if (isIos()) return false;
+  function installHelp() {
     const ua = window.navigator.userAgent || "";
-    if (/Firefox|FxiOS/i.test(ua)) return false;
-    return /Chrome|Chromium|Edg\/|EdgA\/|OPR\/|SamsungBrowser/i.test(ua);
+    if (isIos()) {
+      return {
+        heading: "Add to Home Screen",
+        text: "Tap Share, then Add to Home Screen.",
+      };
+    }
+    const android = /Android/i.test(ua);
+    const firefox = /Firefox/i.test(ua);
+    const edgeDesktop = /Edg\//i.test(ua) && !/EdgA\//i.test(ua);
+    const opera = /OPR\/|Opera/i.test(ua);
+    const samsung = /SamsungBrowser/i.test(ua);
+    const chrome = /Chrome|Chromium/i.test(ua) && !edgeDesktop && !/EdgA\//i.test(ua) && !opera && !samsung;
+    if (android && chrome) {
+      return {
+        heading: "Install app",
+        text: "Open the menu and choose Install app or Add to Home screen.",
+      };
+    }
+    if (!android && firefox) {
+      return {
+        heading: "Install app",
+        text: "Firefox does not install web apps on desktop. Bookmark the page, or open it in Chrome or Edge.",
+      };
+    }
+    if (!android && (chrome || edgeDesktop)) {
+      return {
+        heading: "Install app",
+        text: "Click the install icon at the right end of the address bar, or open the browser menu (three dots) and choose Cast, save and share > Install page as app (Chrome) / Apps > Install this site as an app (Edge).",
+      };
+    }
+    return {
+      heading: "Install app",
+      text: "Open the browser menu and look for Install app or Add to Home Screen.",
+    };
   }
 
   function hideInstall() {
@@ -2395,6 +2467,9 @@
   function openInstallDialog() {
     const dialog = els.installDialog;
     if (!dialog) return;
+    const help = installHelp();
+    if (els.installHeading) els.installHeading.textContent = help.heading;
+    if (els.installInstructions) els.installInstructions.textContent = help.text;
     if (dialog.showModal && !dialog.open) dialog.showModal();
     else dialog.setAttribute("open", "");
   }
@@ -2431,7 +2506,7 @@
     const standaloneQuery = window.matchMedia("(display-mode: standalone)");
     const onDisplayMode = () => {
       if (isStandalone()) hideInstall();
-      else if (installMode === "instructions" || deferredInstallPrompt) showInstallButton(installMode);
+      else showInstallButton(deferredInstallPrompt ? "native" : "instructions");
     };
     if (standaloneQuery.addEventListener) standaloneQuery.addEventListener("change", onDisplayMode);
     else if (standaloneQuery.addListener) standaloneQuery.addListener(onDisplayMode);
@@ -2448,7 +2523,7 @@
     });
 
     if (isStandalone()) hideInstall();
-    else if (!isChromiumInstallable()) showInstallButton("instructions");
+    else showInstallButton("instructions");
 
     if (els.install) {
       els.install.addEventListener("click", async () => {
@@ -2457,15 +2532,20 @@
           const promptEvent = deferredInstallPrompt;
           deferredInstallPrompt = null;
           els.install.disabled = true;
+          let accepted = false;
           try {
             promptEvent.prompt();
             const choice = await promptEvent.userChoice;
-            if (choice && choice.outcome === "accepted") hideInstall();
+            accepted = Boolean(choice && choice.outcome === "accepted");
           } catch (err) {
+            if (!isStandalone()) showInstallButton("instructions");
             openInstallDialog();
+            return;
           } finally {
             if (els.install) els.install.disabled = false;
           }
+          if (accepted) hideInstall();
+          else if (!isStandalone()) showInstallButton("instructions");
           return;
         }
         openInstallDialog();
