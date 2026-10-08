@@ -2,7 +2,7 @@
 
 A phone-first static site listing Jewish community events in Washington, DC: Shabbat and holidays, services, learning, culture, food, and community life, in person, hybrid, and online. List and calendar views, filters, add-to-calendar, share links, and an installable home-screen app. The palette is Israeli flag blue (`#0038B8`) and white, with navy text (`#0A1F5C`) and a light blue surface (`#E8EEFB`).
 
-The site is plain HTML, CSS, and JavaScript. There is no build step. GitHub Pages should be served from the root of `main` (the repository owner turns Pages on; this repo does not enable it and does not add a GitHub Actions workflow).
+The site is plain HTML, CSS, and JavaScript. There is no build step. GitHub Pages should be served from the root of `main` (the repository owner turns Pages on; this repo does not enable it). GitHub Actions checks public-data privacy on pushes and pull requests.
 
 Published URL: https://sfox2006.github.io/DC-Jewish-Events-/
 
@@ -27,6 +27,8 @@ When `events` is empty, the page says “No events yet, data arrives after the f
 ## Data
 
 `data/events.json` is the only event source. Refresh it by replacing that file and pushing the commit Pages serves. Do not hand-edit it for production, and do not commit sample events. This repository does not collect events itself.
+
+Public `source_ref` values must contain public provenance only. Keep private email messages, mailbox identifiers, Gmail inbox URLs, and audit files outside this repository. Before publishing an externally generated event file, run `node scripts/public-data.cjs --sanitize path/to/events.json` outside the repository, then copy only the validated public result to `data/events.json`. The sanitizer removes whole labelled mailbox-provenance segments from `source_ref`, retains public URLs and social references, and rejects other private mailbox metadata. It does not change event facts or religious coverage. Run `node scripts/public-data.cjs --check` and `node --test tests/*.test.cjs` before pushing; CI repeats these checks. There is no separate generated event output or collector in this repository.
 
 ```json
 {

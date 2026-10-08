@@ -110,7 +110,7 @@
       },
       "description": "In-person memorial service focused on mourning those lost in the October 7 attacks; no online option.",
       "source": "web",
-      "source_ref": "https://gatherdc.org/event/october-7th-memorial-service-with-temple-micah/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://gatherdc.org/event/october-7th-memorial-service-with-temple-micah/",
       "id": "6bc8c7e24dfc"
     },
     {
@@ -166,7 +166,7 @@
       },
       "description": "Community commemoration of the third anniversary of October 7 featuring a performance by Hashayara; tickets are free but registration is required (closes Oct 5, 11:59 pm).",
       "source": "web",
-      "source_ref": "https://www.whctemple.org/calendar/ | mail: 1a0f48b107ace757 | social: https://partiful.com/u/Yr2oCOHxpdSzrZLgRVlJ (MoHo CoHi public Partiful profile, 'Upcoming Events') -> https://partiful.com/e/1fcyge7hRBZZiKRDDDI0 (Moishe House Columbia Heights co-promotion; registration via WHC page)",
+      "source_ref": "https://www.whctemple.org/calendar/ | social: https://partiful.com/u/Yr2oCOHxpdSzrZLgRVlJ (MoHo CoHi public Partiful profile, 'Upcoming Events') -> https://partiful.com/e/1fcyge7hRBZZiKRDDDI0 (Moishe House Columbia Heights co-promotion; registration via WHC page)",
       "id": "7c9276c2a9f0"
     },
     {
@@ -222,7 +222,7 @@
       },
       "description": "Daniel Jamieson's love story of Bella and Marc Chagall, told through music, movement and aerial theatre (DC premiere). Pay-What-You-Choose preview performance.",
       "source": "web",
-      "source_ref": "https://www.edcjcc.org/theater-j/ | mail: 1a0f48b107ace757 | social: https://linktr.ee/theaterj (Theater J link-in-bio: 'The Flying Lovers of Vitebsk - Theater J' -> show page)",
+      "source_ref": "https://www.edcjcc.org/theater-j/ | social: https://linktr.ee/theaterj (Theater J link-in-bio: 'The Flying Lovers of Vitebsk - Theater J' -> show page)",
       "id": "de93a6774488"
     },
     {
@@ -334,7 +334,7 @@
       },
       "description": "Five-week salon-style meetups (Thursdays Oct 8 - Nov 5) to think through life's big questions using a Jewish framework.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "ac7e6e40718c"
     },
     {
@@ -782,7 +782,7 @@
       },
       "description": "Inclusive, contemporary Friday night service (6:00 pm happy hour, 7:00 pm service, 8:15 pm dinner); service is free with registration, dinner $18 subsidized or $45, and the meal is kosher-style pescatarian.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "ec13b6578100"
     },
     {
@@ -1598,6 +1598,34 @@
       "id": "86f22ba9c8af"
     },
     {
+      "title": "Montgomery County Board of Education Candidate Forum",
+      "org": "Jewish Community Relations Council of Greater Washington",
+      "start": "2026-10-12T19:00:00-04:00",
+      "end": "2026-10-12T20:30:00-04:00",
+      "venue": "Rockville, MD (venue shared with registrants)",
+      "address": "",
+      "maps_url": "",
+      "url": "https://jcouncil.org/events/montgomery-county-board-education-candidate-forum-0",
+      "category": "learning",
+      "format": "hybrid",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "description": "Discussion with candidates in contested Montgomery County school-board races, including antisemitism and Jewish culture and history in the curriculum. Registration is required by October 8; no clock cutoff is stated. The venue and livestream link will be shared with registrants 48–72 hours ahead. The forum will be livestreamed and recorded.",
+      "source": "web",
+      "source_ref": "https://jcouncil.org/events/montgomery-county-board-education-candidate-forum-0",
+      "id": "2092daf470f3"
+    },
+    {
       "title": "Break Out Day Camp",
       "org": "Edlavitch DCJCC",
       "start": "2026-10-13T08:30:00-04:00",
@@ -1790,7 +1818,7 @@
       },
       "description": "GatherDC's first happy hour of 5787: a chance to meet and mingle with other Jewish 20s and 30s in DC (free if you sign up for a 30-minute check-in volunteer shift).",
       "source": "social",
-      "source_ref": "https://linktr.ee/gatherdc (GatherDC link-in-bio: 'Register for our October Happy Hour!' -> https://bit.ly/DCOct26HH) | mail: 1a0f48b107ace757 | social: https://linktr.ee/gatherdc (GatherDC link-in-bio: 'Register for our October Happy Hour!' -> https://bit.ly/DCOct26HH -> forms.gatherdc.org OctoberHappyHour2026; re-confirmed live 2026-10-05) | alt url: https://forms.gatherdc.org/GatherDC/form/OctoberHappyHour2026/formperma/jPhf73enueNWek8TMP_GhgA9K2Qtam4kzBz8w1ADq5w",
+      "source_ref": "https://linktr.ee/gatherdc (GatherDC link-in-bio: 'Register for our October Happy Hour!' -> https://bit.ly/DCOct26HH) | social: https://linktr.ee/gatherdc (GatherDC link-in-bio: 'Register for our October Happy Hour!' -> https://bit.ly/DCOct26HH -> forms.gatherdc.org OctoberHappyHour2026; re-confirmed live 2026-10-05) | alt url: https://forms.gatherdc.org/GatherDC/form/OctoberHappyHour2026/formperma/jPhf73enueNWek8TMP_GhgA9K2Qtam4kzBz8w1ADq5w",
       "id": "a96f4a760ae6"
     },
     {
@@ -2630,7 +2658,7 @@
       },
       "description": "Community-led vegetarian potluck Shabbat dinner hosted by Sixth & I members Travis and Andrea; admission is free.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0e93b9df0369a3",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "bd7d298e6b04"
     },
     {
@@ -2742,7 +2770,7 @@
       },
       "description": "Laid-back, music-heavy Friday night led by musician Aaron Shneyer; free, RSVP required.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "5f1603cde448"
     },
     {
@@ -3974,7 +4002,7 @@
       },
       "description": "Eight-week workshop led by Rabbi Loren Berman on building a Jewish life, meeting Tuesdays starting Oct 20 (also Oct 27, Nov 3, 10, 17, Dec 1, 8, 15).",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "00ca0d82c2f5"
     },
     {
@@ -4198,7 +4226,7 @@
       },
       "description": "Session 1 of 5 of Rabbi Jenna's experiential introduction to Judaism course (Wednesdays Oct 21 - Nov 18; Shabbat on Nov 13 is required); $154 covers the course.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "de71a324919a"
     },
     {
@@ -4338,7 +4366,7 @@
       },
       "description": "Monthly book club reading a book recommended by Sixth & I's rabbis; October's book is The Amen Effect by Rabbi Sharon Brous.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "7d0ca6bb6d68"
     },
     {
@@ -4534,7 +4562,7 @@
       },
       "description": "Newcomers to DC or Sixth & I join a scavenger hunt at the National Portrait Gallery, then return to Sixth & I for a drink, a tour and a chance to meet others.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0d4cc5b28c03fc",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "11f3fdaeb0a2"
     },
     {
@@ -4590,7 +4618,7 @@
       },
       "description": "A space for LGBTQIA+ folks to build community, explore Torah and discuss the relationship between Judaism and queerness.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "905f3cbd0929"
     },
     {
@@ -4842,7 +4870,7 @@
       },
       "description": "Inclusive, contemporary Friday night service (6:00 pm happy hour, 7:00 pm service) led by guest Rabbi Jason Kimelman-Block; free, registration required.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "49fc79146a1b"
     },
     {
@@ -6158,7 +6186,7 @@
       },
       "description": "Session 2 of 5 of Rabbi Jenna's experiential introduction to Judaism course (Wednesdays Oct 21 - Nov 18; Shabbat on Nov 13 is required); $154 covers the course.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "b4beff3a8a18"
     },
     {
@@ -6186,7 +6214,7 @@
       },
       "description": "Monthly peer-support gathering for people in their 20s and 30s grounded in Jewish wisdom (not led by a therapist); free, RSVP required.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "a925f8cc94b3"
     },
     {
@@ -7894,7 +7922,7 @@
       },
       "description": "Session 3 of 5 of Rabbi Jenna's experiential introduction to Judaism course (Wednesdays Oct 21 - Nov 18; Shabbat on Nov 13 is required); $154 covers the course.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/ | mail: 1a0fde700d3b3218",
+      "source_ref": "https://www.sixthandi.org/events/",
       "id": "a9ad4ba0fe38"
     },
     {
