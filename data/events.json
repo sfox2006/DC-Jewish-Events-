@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-07T13:03:09-04:00",
+  "generated": "2026-10-08T10:31:38-04:00",
   "events": [
     {
       "title": "Senior Lunch",
@@ -314,7 +314,7 @@
       "org": "Sixth & I",
       "start": "2026-10-08T19:00:00-04:00",
       "end": "2026-10-08T20:30:00-04:00",
-      "venue": "Facilitators’ homes (addresses not published)",
+      "venue": "Sixth & I",
       "address": "600 I Street NW, Washington, DC 20001",
       "maps_url": "",
       "url": "https://www.sixthandi.org/event/small-groups-big-questions-2/",
@@ -332,9 +332,9 @@
         "young_adults": true,
         "outdoor": false
       },
-      "description": "Five-week salon-style meetups (Thursdays Oct 8 - Nov 5) to think through life's big questions using a Jewish framework.",
+      "description": "Five-week Thursday discussion cohort led by Travis at Sixth & I, October 8–November 5, 7–8:30 pm. Uses a Jewish framework to explore life questions. Cost is $36. The published application deadline was September 30; availability for late applicants is unknown.",
       "source": "web",
-      "source_ref": "https://www.sixthandi.org/events/",
+      "source_ref": "https://www.sixthandi.org/event/small-groups-big-questions-2/",
       "id": "ac7e6e40718c"
     },
     {
@@ -348,7 +348,7 @@
       "url": "https://www.edcjcc.org/theater-j/show/the-flying-lovers-of-vitebsk/",
       "category": "arts_culture",
       "format": "in_person",
-      "cost": "Unknown",
+      "cost": "Pay-what-you-choose preview; applicable fees unknown",
       "age": "unknown",
       "movement": "secular_cultural",
       "kosher": "unknown",
@@ -360,7 +360,7 @@
         "young_adults": false,
         "outdoor": false
       },
-      "description": "Daniel Jamieson's love story of Bella and Marc Chagall, told through music, movement and aerial theatre (DC premiere). Pay-What-You-Choose preview performance.",
+      "description": "Daniel Jamieson's love story of Bella and Marc Chagall, told through music, movement and aerial theatre (DC premiere). Pay-What-You-Choose preview performance. This October 8 performance is a pay-what-you-choose preview; select the PWYC ticket type on the official ticket page. The production runs 90 minutes without intermission and includes gunfire sound effects.",
       "source": "web",
       "source_ref": "https://www.edcjcc.org/theater-j/",
       "id": "a022233ba994"
@@ -590,34 +590,6 @@
       "id": "751291786c48"
     },
     {
-      "title": "International Friday Night Series: Mexican Shabbat Dinner",
-      "org": "Mesorah DC",
-      "start": "2026-10-09T18:30:00-04:00",
-      "end": "2026-10-09T22:30:00-04:00",
-      "venue": "JStation",
-      "address": "1255 23rd Street NW, Washington, DC 20037",
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=1255%2023rd%20Street%20NW%2C%20Washington%2C%20DC%2020037",
-      "url": "https://mesorahdc.org/events/international/",
-      "category": "shabbat_holidays",
-      "format": "in_person",
-      "cost": "$15",
-      "age": "unknown",
-      "movement": "unknown",
-      "kosher": "unknown",
-      "audience": "unknown",
-      "tags": {
-        "free_food": false,
-        "free_drinks": false,
-        "free_entry": false,
-        "young_adults": false,
-        "outdoor": false
-      },
-      "description": "Join us for Tortillas and Margaritas at our first of a series of International Friday Night Dinners – beginning with Mexican…!",
-      "source": "web",
-      "source_ref": "https://gatherdc.org/event/international-friday-night-series-with-mesorah-dc/",
-      "id": "686a80d2d419"
-    },
-    {
       "title": "October Metro Minyan",
       "org": "2239 (Washington Hebrew Congregation)",
       "start": "2026-10-09T18:30:00-04:00",
@@ -758,6 +730,35 @@
       "id": "b1d876c204f9"
     },
     {
+      "title": "International (Mexican) Friday Night Dinner!",
+      "org": "Mesorah DC",
+      "start": "2026-10-09T18:45:00-04:00",
+      "end": null,
+      "venue": "J Station",
+      "address": "1255 23rd Street NW, Washington, DC 20037",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=1255%2023rd%20Street%20NW%2C%20Washington%2C%20DC%2020037",
+      "url": "https://mesorahdc.org/events/international/",
+      "category": "shabbat_holidays",
+      "format": "in_person",
+      "cost": "$15",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "unknown",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "description": "The organizer’s event header gives 6:45 pm, while its service narrative says 6:30 pm; confirm the service start before attending. Dinner follows at 7:45 pm at J Station. Vegetarian meal requests were due Wednesday. Tickets are $15; any additional fees and the end time are not stated on the organizer page.",
+      "source": "web",
+      "source_ref": "https://mesorahdc.org/events/international/",
+      "id": "686a80d2d419",
+      "rsvp_url": "https://mesorahdc.org/events/international/"
+    },
+    {
       "title": "Friday Night Services + Dinner",
       "org": "Sixth & I",
       "start": "2026-10-09T19:00:00-04:00",
@@ -768,7 +769,7 @@
       "url": "https://www.sixthandi.org/event/friday-night-services-53/",
       "category": "services",
       "format": "hybrid",
-      "cost": "Free-$45",
+      "cost": "Service free; dinner $18 subsidized / $45, plus applicable fees",
       "age": "unknown",
       "movement": "pluralistic",
       "kosher": "kosher_style",
@@ -780,10 +781,11 @@
         "young_adults": true,
         "outdoor": false
       },
-      "description": "Inclusive, contemporary Friday night service (6:00 pm happy hour, 7:00 pm service, 8:15 pm dinner); service is free with registration, dinner $18 subsidized or $45, and the meal is kosher-style pescatarian. The 7 pm service also streams on Sixth & I's Facebook page; happy hour and dinner are in person.",
+      "description": "Inclusive, contemporary Friday night service (6:00 pm happy hour, 7:00 pm service, 8:15 pm dinner); service is free with registration, dinner $18 subsidized or $45, and the meal is kosher-style pescatarian. The 7 pm service also streams on Sixth & I's Facebook page; happy hour and dinner are in person. Happy hour is 21+. Dinner tickets are non-refundable. Additional ticket fees apply.",
       "source": "web",
       "source_ref": "https://www.sixthandi.org/events/",
-      "id": "ec13b6578100"
+      "id": "ec13b6578100",
+      "rsvp_url": "https://secure.sixthandi.org/136/7796"
     },
     {
       "title": "The Flying Lovers of Vitebsk (Day 3 of 20)",
@@ -1301,7 +1303,7 @@
       "category": "services",
       "format": "in_person",
       "cost": "Unknown",
-      "age": "unknown",
+      "age": "all_ages",
       "movement": "reform",
       "kosher": "unknown",
       "audience": "all",
@@ -1312,7 +1314,7 @@
         "young_adults": false,
         "outdoor": false
       },
-      "description": "4 p.m. learning with Rabbis Joshua Beraha and Larry Hoffman; 5–7 p.m. refreshments, musical celebration with Slavic Soul Party!, and havdalah. In-person only; RSVP requested.",
+      "description": "4 p.m. learning with Rabbis Joshua Beraha and Larry Hoffman; 5–7 p.m. refreshments, musical celebration with Slavic Soul Party!, and havdalah. In-person only; RSVP requested. Open to all ages; advance RSVP through the Temple Micah office is requested. Childcare is available 4–5 pm. Saturday activities are in person only.",
       "source": "web",
       "source_ref": "https://www.templemicah.org/calendar/",
       "id": "a962258e7e86"
@@ -1515,7 +1517,36 @@
       "id": "d2aacc279470"
     },
     {
+      "id": "jufj-ward3-canvass-2026-10-11",
+      "title": "Fund Our Future Canvass in Ward 3",
+      "org": "Jews United for Justice",
+      "start": "2026-10-11T14:00:00-04:00",
+      "end": "2026-10-11T17:00:00-04:00",
+      "venue": "Ward 3, Washington, DC (meeting point to be confirmed)",
+      "address": "",
+      "maps_url": "",
+      "url": "https://jufj.org/event/fof-canvass-2/",
+      "rsvp_url": "https://docs.google.com/forms/d/e/1FAIpQLSe9jzao8h4zs2vlFHf0pRM5KllJcF_X1_cE4gh4-p-IRYaSPg/viewform",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
       "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": true
+      },
+      "description": "Volunteer canvass about the Fund Our Futures tax campaign. The organizer links to a volunteer RSVP form that includes the October 11, 2–5 pm shift. Exact meeting point and cost are not stated on the organizer page. Organized with Washington Interfaith Network and DC Fair Budget Coalition.",
+      "source": "web",
+      "source_ref": "https://jufj.org/event/fof-canvass-2/"
+    },
+    {
+      "age": "all_ages",
       "movement": "unknown",
       "kosher": "unknown",
       "audience": "all",
@@ -1626,6 +1657,35 @@
       "source": "web",
       "source_ref": "https://calendar.adasisrael.org/",
       "id": "71d43ab83750"
+    },
+    {
+      "id": "temple-sinai-let-people-vote-2026-10-12",
+      "title": "Let the People Vote: A Faith Powered Election Protection Gathering",
+      "org": "Temple Sinai",
+      "start": "2026-10-12T12:00:00-04:00",
+      "end": "2026-10-12T12:30:00-04:00",
+      "venue": "Freedom Plaza, Washington, DC",
+      "address": "",
+      "maps_url": "",
+      "url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "rsvp_url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": true
+      },
+      "description": "Faith-based gathering in support of free and fair elections, with speakers, music and community participation. Register through Temple Sinai for the listed Monday gatherings. Cost is not stated. Co-sponsored by JCRC of Greater Washington, Temple Micah, Jews United for Justice and Christ Lutheran Church.",
+      "source": "web",
+      "source_ref": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html"
     },
     {
       "title": "Coffee Talk: Jewishness in Shakespeare – The Merchant of Venice",
@@ -2526,6 +2586,35 @@
       "id": "6b7b926035e3"
     },
     {
+      "id": "ohr-kodesh-haviv-rettig-gur-2026-10-15",
+      "title": "The No-Nonsense Reality of Israel: Its History, Critical Present, and Undeniable Challenges with Haviv Rettig Gur",
+      "org": "Ohr Kodesh Congregation",
+      "start": "2026-10-15T20:00:00-04:00",
+      "end": "2026-10-15T21:30:00-04:00",
+      "venue": "Ohr Kodesh Congregation (Lobby & Sanctuary)",
+      "address": "8300 Meadowbrook Lane, Chevy Chase, MD 20815",
+      "maps_url": "",
+      "url": "https://www.ohrkodesh.org/event/no-nonsense-reality-israel-2026",
+      "rsvp_url": "https://www.ohrkodesh.org/event/no-nonsense-reality-israel-2026",
+      "category": "israel",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "conservative",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "description": "Conversation and audience Q&A with journalist Haviv Rettig Gur, moderated by Michael Koplow. Registration is required by noon on October 13. In person only; no livestream. Bags are discouraged and will be checked at entry. Cost is not stated.",
+      "source": "web",
+      "source_ref": "https://www.ohrkodesh.org/event/no-nonsense-reality-israel-2026"
+    },
+    {
       "title": "Jewish DateNight",
       "org": "Luv with Lev / Date Night (datenight.ai)",
       "start": "2026-10-15T21:00:00-04:00",
@@ -2888,6 +2977,35 @@
       "source": "web",
       "source_ref": "https://calendar.adasisrael.org/",
       "id": "1e3e942a276c"
+    },
+    {
+      "end": null,
+      "address": "1307 North Highland Street, Arlington, VA 22201",
+      "maps_url": "",
+      "age": "unknown",
+      "movement": "chabad",
+      "kosher": "unknown",
+      "audience": "20s_30s",
+      "format": "in_person",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": true,
+        "outdoor": true
+      },
+      "source": "web",
+      "source_ref": "https://www.eventbrite.com/e/yjp-shabbat-dinner-under-the-stars-tickets-2001391145793",
+      "id": "chabad-yjp-shabbat-stars-2026-10-16",
+      "title": "YJP Shabbat Dinner Under The Stars",
+      "org": "Chabad YJP Alexandria-Arlington",
+      "start": "2026-10-16T18:30:00-04:00",
+      "venue": "Young Jewish Professionals of Alexandria-Arlington",
+      "url": "https://www.eventbrite.com/e/yjp-shabbat-dinner-under-the-stars-tickets-2001391145793",
+      "rsvp_url": "https://www.eventbrite.com/e/yjp-shabbat-dinner-under-the-stars-tickets-2001391145793",
+      "category": "shabbat_holidays",
+      "cost": "$30 through October 12; $36 through October 15; additional fees unknown",
+      "description": "Israeli-themed Shabbat gathering exclusively for Jewish young professionals in their 20s and 30s. Doors and services begin at 6:30 pm; dinner begins at 7 pm. Outdoors, moving indoors if it rains. Tickets are non-refundable and reservations close when full. Current ticket availability, additional fees and end time are unconfirmed."
     },
     {
       "title": "Pause and Play: A Musical Friday Night",
@@ -3450,6 +3568,35 @@
       "id": "2747796e51a4"
     },
     {
+      "id": "trs-climate-havdalah-2026-10-17",
+      "title": "Climate Action Havdalah & Potluck: Plugging in with Local Climate Action Leaders",
+      "org": "Temple Rodef Shalom Social Justice Committee",
+      "start": "2026-10-17T18:00:00-04:00",
+      "end": "2026-10-17T21:00:00-04:00",
+      "venue": "Temple Rodef Shalom (Social Hall)",
+      "address": "2100 Westmoreland Street, Falls Church, VA 22043",
+      "maps_url": "",
+      "url": "https://templerodefshalom.mhsoftware.com/ViewItem.html?integral=0&cal_item_id=47480&dtwhen=2461331",
+      "rsvp_url": "https://www.signupgenius.com/go/10C0A49A4A82FA2FCC34-65096552-climate",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "reform",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "description": "Adults-only Havdalah, vegetarian potluck and discussion with local climate-action speakers. Starts promptly at 6 pm and ends by 9 pm. RSVP and indicate a potluck contribution using the linked signup. Cost is not stated; live signup availability could not be confirmed.",
+      "source": "web",
+      "source_ref": "https://templerodefshalom.mhsoftware.com/ViewItem.html?integral=0&cal_item_id=47480&dtwhen=2461331"
+    },
+    {
       "title": "The Shanghai Suite (Day 2 of 2)",
       "org": "Edlavitch DCJCC / JxJ",
       "start": "2026-10-17T19:00:00-04:00",
@@ -3730,6 +3877,35 @@
       "id": "bbdc076784aa"
     },
     {
+      "end": "2026-10-18T18:30:00-04:00",
+      "address": "4444 Arlington Boulevard, Arlington, VA 22204",
+      "maps_url": "",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "families",
+      "format": "in_person",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "source": "web",
+      "source_ref": "https://www.kolamivirginia.org/events/kol-ami-open-house-3/",
+      "id": "kol-ami-open-house-2026-10-18",
+      "title": "Kol Ami Open House",
+      "org": "Kol Ami: Northern Virginia Reconstructionist Community",
+      "start": "2026-10-18T15:30:00-04:00",
+      "venue": "Unitarian Universalist Church of Arlington",
+      "url": "https://www.kolamivirginia.org/events/kol-ami-open-house-3/",
+      "rsvp_url": "https://kolaminova.breezechms.com/form/openhouse26",
+      "category": "other",
+      "cost": "Unknown",
+      "description": "Meet Rabbi Doug and community members, learn about Kol Ami and its Jewish education programs, and enjoy refreshments. Children are welcome. Advance registration is available through the linked form. Cost is not stated."
+    },
+    {
       "title": "An Afternoon with Tovah Feldshuh",
       "org": "Washington Hebrew Congregation",
       "start": "2026-10-18T16:00:00-04:00",
@@ -3896,6 +4072,35 @@
       "source": "web",
       "source_ref": "https://www.edcjcc.org/calendar/",
       "id": "096c7d482933"
+    },
+    {
+      "id": "temple-sinai-let-people-vote-2026-10-19",
+      "title": "Let the People Vote: A Faith Powered Election Protection Gathering",
+      "org": "Temple Sinai",
+      "start": "2026-10-19T12:00:00-04:00",
+      "end": "2026-10-19T12:30:00-04:00",
+      "venue": "Freedom Plaza, Washington, DC",
+      "address": "",
+      "maps_url": "",
+      "url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "rsvp_url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": true
+      },
+      "description": "Faith-based gathering in support of free and fair elections, with speakers, music and community participation. Register through Temple Sinai for the listed Monday gatherings. Cost is not stated. Co-sponsored by JCRC of Greater Washington, Temple Micah, Jews United for Justice and Christ Lutheran Church.",
+      "source": "web",
+      "source_ref": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html"
     },
     {
       "title": "Coffee Talk: Jewishness in Shakespeare – The Merchant of Venice",
@@ -4596,6 +4801,35 @@
       "source": "web",
       "source_ref": "https://www.edcjcc.org/calendar/",
       "id": "087948d17828"
+    },
+    {
+      "end": "2026-10-22T09:00:00-04:00",
+      "address": "6125 Montrose Road, Rockville, MD 20852",
+      "maps_url": "",
+      "age": "18+",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "format": "in_person",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": true,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "source": "web",
+      "source_ref": "https://www.benderjccgw.org/calendar/bagels-and-business-featuring-josh-rales/",
+      "id": "bender-bagels-business-rales-2026-10-22",
+      "title": "Bagels and Business featuring Josh Rales",
+      "org": "Bender JCC of Greater Washington",
+      "start": "2026-10-22T07:30:00-04:00",
+      "venue": "Bender JCC of Greater Washington",
+      "url": "https://www.benderjccgw.org/calendar/bagels-and-business-featuring-josh-rales/",
+      "rsvp_url": "https://engage.benderjccgw.org/event/bagels-and-business-featuring-josh-rales/e837733",
+      "category": "networking",
+      "cost": "Free",
+      "description": "Breakfast and networking at 7:30 am, followed by an 8 am conversation with Joshua Rales moderated by Alan Meltzer. For ages 18 and over. The event is free and advance registration is requested; live registration availability could not be confirmed."
     },
     {
       "title": "Taming the Mental Load: Household Systems to Share the Burden",
@@ -5572,7 +5806,7 @@
         "young_adults": true,
         "outdoor": false
       },
-      "description": "oin us for a beautifully blended class of yoga and Judaism! Join 2239 as we set intentions for the new year during an inspiring and relaxing yoga practice.",
+      "description": "Yoga and Jewish reflection with instructor Stephanie Tankel, followed by light refreshments and time to connect. Open to all practice levels. The official listing gives 5–7 pm and allows refunds up to seven days before the event; current ticket price and availability are unknown.",
       "source": "web",
       "source_ref": "https://gatherdc.org/event/havdalah-yoga-with-2239/ | social: https://linktr.ee/whc2239 (2239 / Washington Hebrew Congregation link-in-bio: '2239 Havdalah Yoga' -> this Eventbrite page created by 2239)",
       "id": "df45762a0c2d"
@@ -5884,6 +6118,35 @@
       "source": "web",
       "source_ref": "https://calendar.adasisrael.org/",
       "id": "f18a37483d24"
+    },
+    {
+      "id": "temple-sinai-let-people-vote-2026-10-26",
+      "title": "Let the People Vote: A Faith Powered Election Protection Gathering",
+      "org": "Temple Sinai",
+      "start": "2026-10-26T12:00:00-04:00",
+      "end": "2026-10-26T12:30:00-04:00",
+      "venue": "Freedom Plaza, Washington, DC",
+      "address": "",
+      "maps_url": "",
+      "url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "rsvp_url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": true
+      },
+      "description": "Faith-based gathering in support of free and fair elections, with speakers, music and community participation. Register through Temple Sinai for the listed Monday gatherings. Cost is not stated. Co-sponsored by JCRC of Greater Washington, Temple Micah, Jews United for Justice and Christ Lutheran Church.",
+      "source": "web",
+      "source_ref": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html"
     },
     {
       "title": "Coffee Talk: Jewishness in Shakespeare – The Merchant of Venice",
@@ -7594,6 +7857,35 @@
       "id": "e06a2592ad49"
     },
     {
+      "id": "temple-sinai-let-people-vote-2026-11-02",
+      "title": "Let the People Vote: A Faith Powered Election Protection Gathering",
+      "org": "Temple Sinai",
+      "start": "2026-11-02T12:00:00-05:00",
+      "end": "2026-11-02T12:30:00-05:00",
+      "venue": "Freedom Plaza, Washington, DC",
+      "address": "",
+      "maps_url": "",
+      "url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "rsvp_url": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html",
+      "category": "community_service",
+      "format": "in_person",
+      "cost": "Unknown",
+      "age": "unknown",
+      "movement": "unknown",
+      "kosher": "unknown",
+      "audience": "all",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": false,
+        "young_adults": false,
+        "outdoor": true
+      },
+      "description": "Faith-based gathering in support of free and fair elections, with speakers, music and community participation. Register through Temple Sinai for the listed Monday gatherings. Cost is not stated. Co-sponsored by JCRC of Greater Washington, Temple Micah, Jews United for Justice and Christ Lutheran Church.",
+      "source": "web",
+      "source_ref": "https://templesinaidc.shulcloud.com/form/let-the-people-vote.html"
+    },
+    {
       "title": "Coffee Talk: Jewishness in Shakespeare – The Merchant of Venice",
       "org": "Theater J",
       "start": "2026-11-02T13:00:00-05:00",
@@ -9104,6 +9396,40 @@
       "source": "web",
       "source_ref": "https://www.edcjcc.org/calendar/",
       "id": "b406d1ac9a8b"
+    },
+    {
+      "id": "cjm-family-day-photography-2026-11-08",
+      "title": "Family Day: Focus on Photography",
+      "org": "Capital Jewish Museum",
+      "start": "2026-11-08T11:00:00-05:00",
+      "end": "2026-11-08T15:00:00-05:00",
+      "venue": "Capital Jewish Museum",
+      "address": "575 3rd Street NW, Washington, DC 20001",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=575%203rd%20Street%20NW%2C%20Washington%2C%20DC%2020001",
+      "url": "https://capitaljewishmuseum.org/events/family-day-focus-on-photography/",
+      "rsvp_url": "https://www.simpletix.com/e/family-day-focus-on-photography-tickets-292133",
+      "category": "family",
+      "format": "in_person",
+      "cost": "Free; optional Chai supporter tickets $5.72 including $0.72 fee",
+      "age": "unknown",
+      "movement": "secular_cultural",
+      "kosher": "unknown",
+      "audience": "families",
+      "tags": {
+        "free_food": false,
+        "free_drinks": false,
+        "free_entry": true,
+        "young_adults": false,
+        "outdoor": false
+      },
+      "description": "Family photography workshops and creative activities inspired by Esther Bubley. Best suited to ages 5–15. Adult and child admission are free; optional Chai supporter tickets help subsidize the program. Registration is available on the official ticket page.",
+      "source": "web",
+      "source_ref": "https://capitaljewishmuseum.org/events/family-day-focus-on-photography/"
     }
+  ],
+  "timezone": "America/New_York",
+  "window": [
+    "2026-10-08",
+    "2026-11-08"
   ]
 }
