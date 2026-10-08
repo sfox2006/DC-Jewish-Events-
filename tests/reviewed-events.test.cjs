@@ -1,0 +1,25 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const data = require('../data/events.json');
+test('reviewed additions are deduplicated and preserve unknown event facts', () => {
+  assert.equal(new Set(data.events.map(event=>event.id)).size,data.events.length);
+  const forum=data.events.filter(event=>event.url==='https://jcouncil.org/events/montgomery-county-board-education-candidate-forum-0');
+  assert.equal(forum.length,1);
+  assert.equal(forum[0].cost,'Unknown');
+  assert.equal(forum[0].address,'');
+  assert.equal(forum[0].maps_url,'');
+  const tikkun=data.events.find(event=>event.id==='jvl-dc-tikkun-cheshvan-2026-10-11');
+  assert(tikkun);
+  assert(!tikkun.end);
+  assert.equal(tikkun.address,'');
+  assert.equal(tikkun.tags.free_food,false);
+  assert.equal(tikkun.tags.free_drinks,false);
+  assert.match(tikkun.description,/End time is not stated/);
+  const bbq=data.events.find(event=>event.id==='bender-bluegrass-bbq-2026-10-11');
+  assert.match(bbq.cost,/paying adult/);
+  assert.equal(bbq.tags.free_entry,false);
+  assert.equal(bbq.tags.free_drinks,false);
+  const service=data.events.find(event=>event.id==='ec13b6578100');
+  assert.equal(service.format,'hybrid');
+  assert.match(service.description,/happy hour and dinner are in person/);
+});
