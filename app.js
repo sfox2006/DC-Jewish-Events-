@@ -402,7 +402,7 @@
   function costKind(cost) {
     const text = fieldText(cost).toLowerCase();
     if (!text || text === "unknown") return "unknown";
-    if (text === "free") return "free";
+    if (text === "free" || /^free;\s*optional\b/.test(text)) return "free";
     return "paid";
   }
 
